@@ -1,3 +1,4 @@
+require 'pry'
 # Write your code below game_hash
 def game_hash
   {
@@ -127,3 +128,31 @@ def game_hash
 end
 
 # Write code here
+def num_points_scored player
+  # get to the players array
+  roster = game_hash[:home][:players] + game_hash[:away][:players]
+  # check name against argument
+  found = roster.find do |p|
+    p[:player_name] == player
+  end 
+  # if it matches, return the number of points for that player
+  found[:points]
+end
+
+def shoe_size player
+  # loop to get to players first
+  # game_hash.each { |attr, data|
+  #   if data == :players
+  #     return :players
+  #   end
+  # }
+  roster = game_hash[:home][:players] + game_hash[:away][:players]
+  # check name against argument
+  found = roster.find do |p|
+    p[:player_name] == player
+  end 
+  # if it matches, return the number of points for that player
+  found[:shoe]
+end
+
+# binding.pry
